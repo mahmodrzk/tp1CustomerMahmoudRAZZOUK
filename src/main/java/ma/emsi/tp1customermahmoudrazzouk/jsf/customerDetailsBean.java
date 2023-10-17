@@ -28,7 +28,8 @@ public class customerDetailsBean implements Serializable {
   private CustomerManager customerManager;
   @Inject
   private DiscountManager discountManager;
-
+  
+  
   public int getIdCustomer() {
     return idCustomer;
   }
