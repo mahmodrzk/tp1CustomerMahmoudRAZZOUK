@@ -30,68 +30,142 @@ import java.util.Collection;
     @NamedQuery(name = "MicroMarket.findByAreaWidth", query = "SELECT m FROM MicroMarket m WHERE m.areaWidth = :areaWidth")})
 public class MicroMarket implements Serializable {
 
+    /**
+     *
+     */
     private static final long serialVersionUID = 1L;
+
+    /**
+     *
+     */
     @Id
     @Basic(optional = false)
     @Column(name = "ZIP_CODE")
     private String zipCode;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+
+    /**
+     *
+     */
     @Column(name = "RADIUS")
     private Double radius;
+
+    /**
+     *
+     */
     @Column(name = "AREA_LENGTH")
     private Double areaLength;
+
+    /**
+     *
+     */
     @Column(name = "AREA_WIDTH")
     private Double areaWidth;
+
+    /**
+     *
+     */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "zip")
     private Collection<Customer> customerCollection;
 
+    /**
+     *
+     */
     public MicroMarket() {
     }
 
+    /**
+     *
+     * @param zipCode
+     */
     public MicroMarket(String zipCode) {
         this.zipCode = zipCode;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getZipCode() {
         return zipCode;
     }
 
+    /**
+     *
+     * @param zipCode
+     */
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
 
+    /**
+     *
+     * @return
+     */
     public Double getRadius() {
         return radius;
     }
 
+    /**
+     *
+     * @param radius
+     */
     public void setRadius(Double radius) {
         this.radius = radius;
     }
 
+    /**
+     *
+     * @return
+     */
     public Double getAreaLength() {
         return areaLength;
     }
 
+    /**
+     *
+     * @param areaLength
+     */
     public void setAreaLength(Double areaLength) {
         this.areaLength = areaLength;
     }
 
+    /**
+     *
+     * @return
+     */
     public Double getAreaWidth() {
         return areaWidth;
     }
 
+    /**
+     *
+     * @param areaWidth
+     */
     public void setAreaWidth(Double areaWidth) {
         this.areaWidth = areaWidth;
     }
 
+    /**
+     *
+     * @return
+     */
     public Collection<Customer> getCustomerCollection() {
         return customerCollection;
     }
 
+    /**
+     *
+     * @param customerCollection
+     */
     public void setCustomerCollection(Collection<Customer> customerCollection) {
         this.customerCollection = customerCollection;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 0;
@@ -99,6 +173,11 @@ public class MicroMarket implements Serializable {
         return hash;
     }
 
+    /**
+     *
+     * @param object
+     * @return
+     */
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -112,6 +191,10 @@ public class MicroMarket implements Serializable {
         return true;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "ma.emsi.tp1customermahmoudrazzouk.entity.MicroMarket[ zipCode=" + zipCode + " ]";
