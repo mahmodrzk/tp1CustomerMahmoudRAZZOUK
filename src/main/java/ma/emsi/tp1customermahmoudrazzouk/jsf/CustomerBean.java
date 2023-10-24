@@ -10,19 +10,35 @@ import jakarta.inject.Inject;
 import java.io.Serializable;
 import java.util.List;
 import ma.emsi.tp1customermahmoudrazzouk.entity.Customer;
-import service.CustomerManager;
+import ma.emsi.tp1customermahmoudrazzouk.service.CustomerManager;
 
-
+/**
+ *
+ * @author ADMIN
+ */
 @Named(value = "customerBean")
 @ViewScoped
 public class CustomerBean implements Serializable {
-private List<Customer> customerList;  
-@Inject  
+  
+    /**
+     *
+     */
+    private List<Customer> customerList;  
+  
+    /**
+     *
+     */
+    @Inject  
 private CustomerManager customerManager;
-  public CustomerBean() {
+
+    /**
+     *
+     */
+    public CustomerBean() {
   }
   /** 
    * Retourne la liste des clients pour affichage dans une DataTable.
+     * @return 
    */  
   public List<Customer> getCustomers() {
     if (customerList == null) {

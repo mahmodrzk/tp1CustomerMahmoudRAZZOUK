@@ -12,7 +12,7 @@ import jakarta.faces.convert.Converter;
 import jakarta.faces.convert.FacesConverter;
 import jakarta.inject.Inject;
 import ma.emsi.tp1customermahmoudrazzouk.entity.Discount;
-import service.DiscountManager;
+import ma.emsi.tp1customermahmoudrazzouk.service.DiscountManager;
 
 /**
  *
@@ -20,7 +20,11 @@ import service.DiscountManager;
  */
 @FacesConverter(value = "discountConverter", managed=true)
 public class DiscountConverter implements Converter<Discount> {
-  @Inject
+
+    /**
+     *
+     */
+    @Inject
   private DiscountManager discountManager;
 
   /**
@@ -44,6 +48,7 @@ public class DiscountConverter implements Converter<Discount> {
      * @param discount
      * @return 
    */
+  @Override
   public String getAsString(FacesContext context, UIComponent component, Discount discount) {
     if (discount == null) return "";
     return discount.getCode();

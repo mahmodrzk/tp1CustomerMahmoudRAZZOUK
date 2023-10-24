@@ -11,8 +11,8 @@ import java.io.Serializable;
 import java.util.List;
 import ma.emsi.tp1customermahmoudrazzouk.entity.Customer;
 import ma.emsi.tp1customermahmoudrazzouk.entity.Discount;
-import service.CustomerManager;
-import service.DiscountManager;
+import ma.emsi.tp1customermahmoudrazzouk.service.CustomerManager;
+import ma.emsi.tp1customermahmoudrazzouk.service.DiscountManager;
 
 
 /**
@@ -21,20 +21,42 @@ import service.DiscountManager;
 @Named
 @ViewScoped
 public class customerDetailsBean implements Serializable {
-  private int idCustomer;
-  private Customer customer;
 
-  @Inject
+    /**
+     *
+     */
+    private int idCustomer;
+
+    /**
+     *
+     */
+    private Customer customer;
+
+    /**
+     *
+     */
+    @Inject
   private CustomerManager customerManager;
-  @Inject
+
+    /**
+     *
+     */
+    @Inject
   private DiscountManager discountManager;
   
-  
-  public int getIdCustomer() {
+    /**
+     *
+     * @return
+     */
+    public int getIdCustomer() {
     return idCustomer;
   }
 
-  public void setIdCustomer(int idCustomer) {
+    /**
+     *
+     * @param idCustomer
+     */
+    public void setIdCustomer(int idCustomer) {
     this.idCustomer = idCustomer;
   }
 
@@ -59,7 +81,10 @@ public class customerDetailsBean implements Serializable {
     return "customerList";
   }
 
-  public void loadCustomer() {
+    /**
+     *
+     */
+    public void loadCustomer() {
     this.customer = customerManager.findById(idCustomer);
   }
   /**
